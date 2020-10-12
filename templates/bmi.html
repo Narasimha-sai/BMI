@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>BMI CALCULATOR</title>
+    <link rel = "icon" href ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR9As6dHkFLVHBAR9oyZyWpiNCkWzvmtD3O4A&usqp=CAU" type = "image/x-icon">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Welcome</a>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="navbar-header">
+      <a class="navbar-brand">Hello! {{ user.first_name }}</a>
+    </div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="logout/">Logout</a>
+    </div>
+    {% else %}
+    <div class="navbar-header">
+      <a class="navbar-brand" href="register/">Register</a>
+    </div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="login/">Login</a>
+    </div>
+    {% endif %}
+  </nav>
+  <style>
+    .cl{
+      background-color: gray;
+      text-align: center;
+      border-radius: 15%;
+    }
+    body{
+      background-color: green;
+    }
+    #one{
+      border-radius: 15%;
+    }
+    #two{
+      border-radius: 15%;
+    }
+    #three{
+      border-radius: 15%;
+    }
+    #four{
+      border-radius: 15%;
+    }
+    .jumbotron{
+      border-color: black;
+    }
+  </style>
+    <div class="container">
+      <br><br><br>
+      <div class='cl' class="jumbotron">
+        <br>
+      <h1>BMI Calculator</h1><br>
+    <form action="result/" method="post">
+        {% csrf_token %}
+        <b>Name : </b><input id='one' type="text" name="Name" value=""><br><br>
+        <b>Gender : </b><input id='two' type="text" name="Gender" value=""><br><br>
+        <b>Height : </b><input id='three' type="text" name="Height" value=""><br><br>
+        <b>Weight : </b><input id='four' type="text" name="Weight" value=""><br><br>
+        {% if user.is_authenticated %}
+        <b>Email : </b><input id='four' type="email" name="Email" value="{{user.email}}"><br><br>
+        {% else %}
+        <b>Email : </b><input id='four' type="email" name="Email" value=""><br><br>
+        {% endif %}
+        <input type="submit" class='btn btn-success' name="" value="submit"><br><br>
+    </form>
+    </div>
+    </div>
+  </body>
+</html>

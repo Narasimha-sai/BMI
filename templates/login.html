@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>Login Form</title>
+    <link rel = "icon" href ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR9As6dHkFLVHBAR9oyZyWpiNCkWzvmtD3O4A&usqp=CAU" type = "image/x-icon">
+  </head>
+  <body>
+    <style>
+      body{
+        background: gray;
+      }
+    </style>
+    <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a class="navbar-brand">Login</a>
+    </div>
+  </nav>
+    <div class="container">
+    <div class="jumbotron">
+    <h1>Login</h1>
+    <form  action="" method="post">
+      {% csrf_token %}
+      User Name : <input type="text" name="user_name" placeholder="User Name"><br><br>
+      Password : <input type="password" name="password" placeholder="Password"><br><br>
+      <input type="submit" name="" value="submit">
+      Not a user? <a href="register/">Register</a>
+    </form>
+    <div>
+      {% for m in messages %}
+      <h4>{{m}}</h4>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+  </body>
+</html>
