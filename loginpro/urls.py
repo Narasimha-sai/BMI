@@ -24,4 +24,5 @@ urlpatterns = [
     path('register/',include('loginapp.urls')),
     path('result/',include('loginapp.urls')),
     path('logout/', include('loginapp.urls')),
+    #urls 
 ]
